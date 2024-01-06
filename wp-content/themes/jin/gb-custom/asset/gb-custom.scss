@@ -1,0 +1,1626 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "../../lib/bourbon/bourbon";
+@import "../../lib/neat/neat";
+@import "https://use.fontawesome.com/releases/v5.0.1/css/all.css";
+
+$mobile: (
+	columns: 12,
+	gutter: 20px,
+	media: "(max-width: 767px)",
+);
+$tablet: (
+	columns: 12,
+	gutter: 30px,
+	media: "(min-width: 768px)",
+);//タブレット以上の基本レイアウトに使用
+$tablet_pc: (
+	columns: 12,
+	gutter: 30px,
+	media: "(min-width: 835px) and (max-width: 1199px)",
+);
+$pc: (
+	columns: 12,
+	gutter: 30px,
+	media: "(min-width: 1200px)",
+);//PCとタブレットPCのレイアウト差別化のときに使用
+
+$pc_view: (
+	columns: 12,
+	gutter: 30px,
+	media: "(min-width: 1024px)",
+);//タブレットPCとPCの見た目を共有するために使用
+
+$pc-width:1200px;
+$tablet-width:100%;
+
+$layout1: (
+	columns: 1,
+	gutter: 30px,
+);
+$layout1_0: (
+	columns: 1,
+	gutter: 0px,
+);
+$layout1_10: (
+	columns: 1,
+	gutter: 10px,
+);
+$layout12: (
+	columns: 12,
+	gutter: 30px,
+);
+$layout12_20: (
+	columns: 12,
+	gutter: 20px,
+);
+$layout12_15: (
+	columns: 12,
+	gutter: 15px,
+);
+$layout12_0: (
+	columns: 12,
+	gutter: 0px,
+);
+$layout12_10: (
+	columns: 12,
+	gutter: 10px,
+);
+
+$text-color:#2b2b2b;
+$link-color:#0094c8;
+
+$base-color:#2b2b2b;
+$sub-color2:#E3E5E5;
+$sub-color3:#FFFFFF;
+$accent-color:#f8b500;
+
+$main_font:'ヒラギノ角ゴ ProN W3', Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-seri;
+$l_dark_color:#aaa;
+$m_dark_color:#888;
+$d_dark_color:#333;
+
+@mixin trans01{
+	-webkit-transition: all .3s;
+	transition: all .3s;
+}
+@mixin paper{
+	border-radius: 2px;
+	background: #fff;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.18);
+	@include grid-media($mobile){
+		border-radius: 0px;
+		box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+	}
+};
+@mixin paper-widget{
+	border-radius: 2px;
+	background: #fff;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.18);
+	@include grid-media($mobile){
+		border-radius: 0px;
+		box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
+	}
+};
+@mixin paper-sp{
+	@include grid-media($mobile){
+		border-radius: 2px;
+		background: #fff;
+		box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+		border-top: 1px solid #F3F3F3;
+	}
+};
+
+
+.wp-block *{
+	font-family:$main_font!important;
+	font-weight: 300;
+}
+.wp-block[data-type="core/freeform"] .mce-btn i {
+	font-family: dashicons !important;
+}
+.editor-post-title__input{
+	font-weight: 500!important;
+	font-size: 2rem!important;
+	line-height: 2.3rem!important;
+}
+.edit-post-visual-editor {
+    .editor-post-title__block,
+    .editor-block-list__block {
+        max-width: 800px;
+    }
+    .editor-block-list__block {
+        &[data-align="wide"] {
+            max-width: 1100px;
+        }
+ 
+        &[data-align="full"] {
+            max-width: none;
+        }
+    }
+}
+
+/*Gutenbergエディターの余白調整*/
+.editor-block-list__layout .editor-styles-wrapper p{
+padding-bottom: 0;	
+}
+
+.editor-styles-wrapper .components-autocomplete p{
+padding-bottom: 0;	
+}
+
+/*インライン要素の編集ツールを右に*/
+.editor-block-contextual-toolbar .editor-block-toolbar{
+left: auto;
+right: 0;
+}
+
+/*シンプルボックスの調節*/
+.editor-block-list__layout .editor-styles-wrapper .simple-box1 p,
+.editor-block-list__layout .editor-styles-wrapper .simple-box2 p,
+.editor-block-list__layout .editor-styles-wrapper .simple-box3 p,
+.editor-block-list__layout .editor-styles-wrapper .simple-box4 p,
+.editor-block-list__layout .editor-styles-wrapper .simple-box5 p,
+.editor-block-list__layout .editor-styles-wrapper .simple-box6 p,
+.editor-block-list__layout .editor-styles-wrapper .simple-box7 p,
+.editor-block-list__layout .editor-styles-wrapper .simple-box8 p,
+.editor-block-list__layout .editor-styles-wrapper .simple-box9 p,
+.editor-block-list__layout .editor-styles-wrapper .concept-box1 p,
+.editor-block-list__layout .editor-styles-wrapper .concept-box2 p,
+.editor-block-list__layout .editor-styles-wrapper .concept-box3 p,
+.editor-block-list__layout .editor-styles-wrapper .concept-box4 p,
+.editor-block-list__layout .editor-styles-wrapper .concept-box5 p,
+.editor-block-list__layout .editor-styles-wrapper .concept-box6 p{
+padding-bottom: 0;	
+}
+
+
+/*解説ボックスの調節*/
+.editor-block-list__layout .kaisetsu-box1 p,
+.editor-block-list__layout .kaisetsu-box2 p,
+.editor-block-list__layout .kaisetsu-box3 p,
+.editor-block-list__layout .kaisetsu-box4 p,
+.editor-block-list__layout .kaisetsu-box5 p,
+.editor-block-list__layout .kaisetsu-box6 p,
+.editor-block-list__layout .innerlink-box1 p{
+padding-bottom: 0;	
+}
+
+.kaisetsu-box1 .editor-inner-blocks,
+.kaisetsu-box2 .editor-inner-blocks,
+.kaisetsu-box3 .editor-inner-blocks,
+.kaisetsu-box4 .editor-inner-blocks,
+.kaisetsu-box5 .editor-inner-blocks,
+.innerlink-box1 .editor-inner-blocks{
+padding-bottom: 15px;
+}
+
+/*タイトル付きボックスの調整*/
+.editor-block-list__layout .innerlink-box1-title{
+font-size: 18px;
+padding: 13px;
+left: 15px;
+}
+
+.wp-block-jin-gb-block-box-with-headline .innerlink-box1-title{
+font-size: 18px;
+padding: 13px;
+left: 15px;
+}
+
+/*アイコンボックスの調整*/
+.editor-block-list__layout .blue-iconbox-border,
+.editor-block-list__layout .red-iconbox-border,
+.editor-block-list__layout .green-iconbox-border,
+.editor-block-list__layout .yellow-iconbox-border{
+width: 90%;
+}
+
+.editor-block-list__layout .blue-iconbox-border .editor-block-list__block-edit,
+.editor-block-list__layout .red-iconbox-border .editor-block-list__block-edit,
+.editor-block-list__layout .green-iconbox-border .editor-block-list__block-edit,
+.editor-block-list__layout .yellow-iconbox-border .editor-block-list__block-edit{
+margin:10px;
+}
+
+.concept-box1:before,
+.concept-box2:before,
+.concept-box3:before,
+.concept-box4:before,
+.concept-box5:before,
+.concept-box6:before,
+.concept-box1:after,
+.concept-box2:after,
+.concept-box3:after,
+.concept-box4:after,
+.concept-box5:after,
+.concept-box6:after{
+	box-sizing: content-box!important;
+}
+
+//エディター上のicon画像表示の調整
+.editor-styles-wrapper .editor-block-icon{
+	img{
+		margin-bottom: 0!important;
+	}
+}
+button .jin-icons{
+	font-size: 14px;
+}
+
+.h2-style01{
+	.wp-block-heading h2{
+		background-color: $base-color;
+		color: #fff;
+		border-radius: 2px;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 13px;
+			padding-bottom: 12px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+			padding: 15px;
+			padding-bottom: 16px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+}
+.h2-style02{
+	.wp-block-heading h2{
+		position: relative;
+		border-bottom: 1px solid #ddd;
+		border-left: 5px solid $base-color;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 10px 10px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+			padding: 15px 12px;
+			padding-top: 16px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h2:before{
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		opacity: 0.05;
+	}
+}
+.h2-style03{
+	.wp-block-heading h2{
+		background-color: $base-color;
+		color: #fff;
+		border-radius: 4px;
+		position: relative;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 19px 13px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+			padding: 13px 15px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h2:before{
+		position: absolute;
+		content: '';
+		height: 1px;
+		width: 98%;
+		background-image: linear-gradient(90deg, rgba(255,255,255,0.70), rgba(255,255,255,0.70) 60%, transparent 60%, transparent 100%);
+  		background-size: 10px 3px;
+		top:5px;
+		left: 1%;
+		z-index: 999;
+		@include grid-media($mobile){
+			width: 96%;
+			left: 2%;
+		}
+	}
+	.wp-block-heading h2:after{
+		position: absolute;
+		content: '';
+		height: 1px;
+		width: 98%;
+		background-image: linear-gradient(90deg, rgba(255,255,255,0.70), rgba(255,255,255,0.70) 60%, transparent 60%, transparent 100%);
+  		background-size: 10px 3px;
+		bottom:5px;
+		left: 1%;
+		z-index: 999;
+		@include grid-media($mobile){
+			width: 96%;
+			left: 2%;
+		}
+	}
+}
+.h2-style04{
+	.wp-block-heading h2{
+		color: $base-color;
+		position: relative;
+		@include grid-media($mobile){
+			font-size: 1.4rem;
+			line-height: 1.8rem;
+			padding: 13px 0;
+			padding-bottom: 14px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 300;
+		}
+		@include grid-media($tablet){
+			font-size: 1.8rem;
+			line-height: 2.2rem;
+			padding: 20px 0;
+			padding-bottom: 21px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+			font-weight: 300;
+		}
+	}
+	.wp-block-heading h2:before{
+		position: absolute;
+		content: '';
+		top:0;
+		left: -30px;
+		height: 100%;
+		width: 3px;
+		background-color: $base-color;
+		@include grid-media($mobile){
+			left: -15px;
+		}
+	}
+}
+.h2-style05{
+	.wp-block-heading h2{
+		position: relative;
+		padding: 14px;
+    	background-color: $base-color;
+		color: #fff;
+		border-bottom: none;
+		border-radius:6px;
+		margin-bottom: 30px;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+		}
+	}
+	.wp-block-heading h2:before{
+		position: absolute;
+		bottom: -12px;
+		left: 7%;
+		z-index: 90;
+		margin-left: -15px;
+		border-top: 12px solid;
+		border-left: 12px solid transparent;
+		border-right: 12px solid transparent;
+		border-bottom: 0;
+		border-top-color: $base-color;
+		content: "";
+	}
+}
+.h2-style06{
+	.wp-block-heading h2{
+		position: relative;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 13px;
+			padding-left: 6px;
+			padding-bottom: 8px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+			padding: 15px;
+			padding-left: 8px;
+			padding-bottom: 10px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h2:before{
+		position: absolute;
+		content: "";
+		z-index: 0;
+		bottom: 0;
+		left: 0px;
+		width: 100%;
+		height: 6px;
+		border-radius: 5px;
+		background-image: linear-gradient(
+			-45deg,
+			transparent 25%,
+			#f4e2de 25%,
+			#f4e2de 50%,
+			transparent 50%,
+			transparent 75%,
+			#f4e2de 75%,
+			#f4e2de
+		);
+		background-size: 6px 6px;
+	}
+}
+.h2-style07{
+	.wp-block-heading h2{
+		position: relative;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 13px;
+			padding-left: 6px;
+			padding-bottom: 8px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+			padding: 15px;
+			padding-left: 8px;
+			padding-bottom: 10px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h2:before{
+		position: absolute;
+		content: "";
+		z-index: 0;
+		bottom: 0;
+		left: 0px;
+		width: 100%;
+		height: 4px;
+		border-radius: 1px;
+		background: #ccc;
+		opacity: 0.5;
+	}
+	h2:after{
+		position: absolute;
+		content: "";
+		z-index: 0;
+		bottom: 0;
+		left: 0px;
+		height: 4px;
+		border-bottom-left-radius: 1px;
+		border-top-left-radius: 1px;
+		background: red;
+		@include grid-media($mobile){
+			width: 80px;
+		}
+		@include grid-media($tablet){
+			width: 120px;
+		}
+	}
+}
+.h2-style08{
+	.wp-block-heading h2{
+		position: relative;
+		border-bottom: 2px solid #ccc;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 13px;
+			padding-left: 24px;
+			padding-bottom: 4px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+			padding: 15px;
+			padding-left: 24px;
+			padding-bottom: 6px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h2:before{
+		content: "";
+		position: absolute;
+		background: #fff;
+		border: 1px solid;
+		border-color: $link_color;
+		top: 0;
+		left: 0.4em;
+		height: 12px;
+		width: 12px;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+		@include grid-media($mobile){
+			top: 0;
+			left: 0.4em;
+		}
+	}
+	.wp-block-heading h2:after{
+		content: "";
+		position: absolute;
+		background-color:$link_color;
+		top: 0.8em;
+		left: 0.1em;
+		height: 8px;
+		width: 8px;
+		-webkit-transform: rotate(15deg);
+		transform: rotate(15deg);
+		@include grid-media($mobile){
+			top: 1em;
+			left: 0;
+		}
+	}
+}
+.h2-style09{
+	.wp-block-heading h2{
+		position: relative;
+		border-bottom: 3px double #ccc;
+		@include grid-media($mobile){
+			font-size: 1.45rem;
+			line-height: 1.8rem;
+			padding: 13px;
+			padding-left: 8px;
+			padding-bottom: 4px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 700;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+			padding: 15px;
+			padding-left: 8px;
+			padding-bottom: 6px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+}
+.h2-style10{
+	.wp-block-heading h2{
+		position: relative;
+		@include grid-media($mobile){
+			font-size: 1.45rem;
+			line-height: 1.8rem;
+			padding: 13px;
+			padding-left: 6px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 700;
+		}
+		@include grid-media($tablet){
+			font-size: 1.65rem;
+			line-height: 2rem;
+			padding: 15px;
+			padding-left: 8px;
+			margin-top: 2.6rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h2:before{
+		position: absolute;
+		content: "";
+		z-index: 0;
+		bottom: 0;
+		left: 0px;
+		width: 100%;
+		height: 4px;
+		border-radius: 4px;
+	}
+	.wp-block-heading h2:after{
+		position: absolute;
+		content: "";
+		z-index: 0;
+		top: 0;
+		left: 0px;
+		height: 4px;
+		border-radius: 4px;
+		width: 100%;
+	}
+}
+.h3-style01{
+	.wp-block-heading h3{
+		border-bottom: 3px solid $base-color;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 5px 8px;
+			padding-top: 0;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.5rem;
+			line-height: 2rem;
+			padding: 8px 15px;
+			padding-top: 0;
+			margin-top: 2.3rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+}
+.h3-style02{
+	.wp-block-heading h3{
+		position: relative;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 8px 12px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.5rem;
+			line-height: 2rem;
+			padding: 10px 15px;
+			margin-top: 2rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h3:before{
+		position: absolute;
+		content: "";
+		left: 0px;
+		width: 5px;
+		background: #000;
+		opacity: 0.5;
+		@include grid-media($mobile){
+			top: 3px;
+			height: 34px;
+		}
+		@include grid-media($tablet){
+			top: 5px;
+			height: 40px;
+		}
+	}
+	.wp-block-heading h3:after{
+		position: absolute;
+		content: "";
+		left: 0px;
+		width: 5px;
+		background: red;
+		@include grid-media($mobile){
+			top: 3px;
+			height: 17px;
+			
+		}
+		@include grid-media($tablet){
+			top: 5px;
+			height: 20px;
+		}
+	}
+}
+.h3-style03{
+	.wp-block-heading h3{
+		position: relative;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 10px 15px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.5rem;
+			line-height: 2rem;
+			padding: 12px 20px;
+			margin-top: 2.3rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h3:before{
+		position: absolute;
+		content: '';
+		width: 7px;
+		height: 100%;
+		left: 0;
+		bottom: 0;
+		background-color: $base-color;
+		border-radius: 3.5px;
+		@include grid-media($mobile){
+			width: 6px;
+			border-radius: 3px;
+		}
+	}
+}
+.h3-style04{
+	.wp-block-heading h3{
+		position: relative;
+		border-bottom: 1px dashed #ddd;
+		border-left: 5px solid $base-color;
+		@include grid-media($mobile){
+			font-size: 1.2rem;
+			line-height: 1.7rem;
+			padding: 4px 10px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.5rem;
+			line-height: 2rem;
+			padding: 10px 15px;
+			margin-top: 2rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+}
+.h3-style05{
+	.wp-block-heading h3{
+		position: relative;
+		border-bottom: 3px double #ddd;
+		@include grid-media($mobile){
+			font-size: 1.15rem;
+			line-height: 1.55rem;
+			padding: 4px 10px;
+			padding-top: 6px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.35rem;
+			line-height: 1.85rem;
+			padding: 6px 12px;
+			margin-top: 2rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h3:before{
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		opacity: 0.05;
+	}
+}
+.h3-style06{
+	.wp-block-heading h3{
+		position: relative;
+		border-top: 1px solid #ddd;
+		border-bottom: 1px solid #ddd;
+		@include grid-media($mobile){
+			font-size: 1.15rem;
+			line-height: 1.55rem;
+			padding: 6px 10px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 700;
+		}
+		@include grid-media($tablet){
+			font-size: 1.35rem;
+			line-height: 1.85rem;
+			padding: 8px 12px;
+			margin-top: 2rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+}
+.h3-style07{
+	.wp-block-heading h3{
+		position: relative;
+		@include grid-media($mobile){
+			font-size: 1.15rem;
+			line-height: 1.55rem;
+			padding: 8px 10px;
+			margin-top: 1.4rem;
+			margin-bottom: 1rem;
+			font-weight: 700;
+		}
+		@include grid-media($tablet){
+			font-size: 1.35rem;
+			line-height: 1.85rem;
+			padding: 8px 12px;
+			margin-top: 2rem;
+			margin-bottom: 1.6rem;
+		}
+	}
+	.wp-block-heading h3:before{
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		border-radius: 2px;
+		background: #000;
+		opacity: 0.2;
+	}
+}
+.h4-style01{
+	.wp-block-heading h4{
+		border-left: 2px solid $base-color;
+		@include grid-media($mobile){
+			font-size: 1.05rem;
+			line-height: 1.6rem;
+			padding: 2px 8px;
+			margin-top: 1rem;
+			margin-bottom: 0.8rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.3rem;
+			line-height: 1.8rem;
+			padding: 2px 12px;
+			margin-top: 1rem;
+			margin-bottom: 0.8rem;
+		}
+	}
+}
+.h4-style02{
+	.wp-block-heading h4{
+		position: relative;
+		border-radius: 2px;
+		@include grid-media($mobile){
+			font-size: 1.1rem;
+			line-height: 1.6rem;
+			padding: 6px 8px;
+			margin-top: 1rem;
+			margin-bottom: 0.8rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.3rem;
+			line-height: 1.8rem;
+			padding: 8px 15px;
+			margin-top: 1rem;
+			margin-bottom: 0.8rem;
+		}
+	}
+	.wp-block-heading h4:before{
+		position: absolute;
+		content: "";
+		top:0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #f2f2f2;
+		border-radius: 2px;
+		filter: opacity(0.1);
+	}
+}
+.h4-style03{
+	.wp-block-heading h4{
+		@include grid-media($mobile){
+			font-size: 1.1rem;
+			line-height: 1.6rem;
+			padding: 5px 8px;
+			margin-top: 1rem;
+			margin-bottom: 0.8rem;
+			font-weight: 600;
+			border-bottom: 2px dotted $base-color;
+		}
+		@include grid-media($tablet){
+			font-size: 1.3rem;
+			line-height: 1.8rem;
+			padding: 8px 15px;
+			margin-top: 1rem;
+			margin-bottom: 0.8rem;
+			border-bottom: 4px dotted $base-color;
+		}
+	}
+}
+.h4-style04{
+	.wp-block-heading h4{
+		background-color: #f2f2f2;
+		border-radius: 2px;
+		@include grid-media($mobile){
+			font-size: 1.1rem;
+			line-height: 1.6rem;
+			padding: 6px 8px;
+			margin-top: 1rem;
+			margin-bottom: 0.8rem;
+			font-weight: 600;
+		}
+		@include grid-media($tablet){
+			font-size: 1.3rem;
+			line-height: 1.8rem;
+			padding: 8px 15px;
+			margin-top: 1rem;
+			margin-bottom: 0.8rem;
+		}
+	}
+}
+
+
+
+.kaisetsu-box1{
+	position: relative;
+}
+.kaisetsu-box1:before{
+	position: absolute;
+	content: "";
+	display: block;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity:0.15;
+	border-radius: 4px;
+	z-index: 0;
+}
+.kaisetsu-box1-title{
+	position: absolute!important;
+	display: block!important;
+	left: 0;
+	top: 0;
+	color: #fff;
+	width: 100%;
+	padding: 12px 0;
+	text-align: center;
+	letter-spacing: 0px!important;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	@include grid-media($tablet){
+		font-size: 21px;
+		font-weight: 500;
+	}
+	@include grid-media($mobile){
+		font-size: 18px;
+		font-weight: 700;
+	}
+}
+.kaisetsu-box2{
+	position: relative;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	@include grid-media($tablet){
+		padding-top: 80px!important;
+	}
+	@include grid-media($mobile){
+		padding-top: 70px!important;
+	}
+	ol,ul{
+		li{
+			border-bottom: 2px dashed #ccc;
+			padding-bottom: 9px;
+		}
+	}
+}
+.kaisetsu-box2:before{
+	position: absolute;
+	content: "";
+	display: block;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity:0.15;
+	border-radius: 4px;
+	z-index: 0;
+}
+.kaisetsu-box2-title{
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 0;
+	color: #fff;
+	width: 100%;
+	padding: 12px 0;
+	text-align: center;
+	letter-spacing: 0px!important;
+	@include grid-media($tablet){
+		font-size: 21px;
+		font-weight: 500;
+	}
+	@include grid-media($mobile){
+		font-size: 18px;
+		font-weight: 700;
+	}
+}
+.kaisetsu-box3{
+	position: relative;
+	border: 10px solid #E3B66A;
+	background:#369377;
+	border-radius: 1px;
+	color: #fff!important;
+	@include grid-media($tablet){
+		padding-top: 80px!important;
+	}
+	@include grid-media($mobile){
+		padding-top: 70px!important;
+	}
+	ol,ul{
+		li{
+			border-bottom: 2px solid rgba(255,255,255,0.21);
+			padding-bottom: 9px;
+		}		
+	}
+}
+.kaisetsu-box3:before{
+	position: absolute;
+	content:"";
+	right: 0;
+	bottom: 0;
+	width: 57px;
+	height: 23px;
+	background:url(img/bankeshi.png);
+	background-size:contain;
+}
+.kaisetsu-box3-title{
+	position: absolute;
+	display: block;
+	left: 0;
+	top: 15px;
+	color: #fff;
+	width: 100%;
+	padding: 15px 0;
+	text-align: center;
+	font-weight: bold;
+	letter-spacing: 0px!important;
+	@include grid-media($tablet){
+		font-size: 21px;
+		font-weight: 500;
+	}
+	@include grid-media($mobile){
+		font-size: 18px;
+		font-weight: 700;
+	}
+}
+.kaisetsu-box4{
+	position: relative;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	border-top-left-radius: 0;
+	@include grid-media($mobile){
+		margin-top: 35px!important;
+	}
+	@include grid-media($tablet){
+		margin-top: 40px!important;
+	}
+}
+.kaisetsu-box4-title{
+	position: absolute;
+	line-height: 0;
+	font-size: 18px;
+	left: -1px;
+	top: -36px;
+	color: #fff;
+	padding: 18px 15px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	letter-spacing: 0px!important;
+	@include grid-media($tablet){
+		font-weight: 500;
+	}
+	@include grid-media($mobile){
+		font-weight: 700;
+	}
+}
+.kaisetsu-box5{
+	position: relative;
+	border-radius: 4px;
+	@include grid-media($mobile){
+		padding-top: 30px!important;
+		margin-top: 20px!important;
+	}
+	@include grid-media($tablet){
+		padding-top: 40px!important;
+		margin-top: 20px!important;
+	}
+}
+.kaisetsu-box5:before{
+	position: absolute;
+	content: "";
+	display: block;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	opacity:0.12;
+	border-radius: 4px;
+	box-sizing: border-box;
+	z-index: 0;
+}
+.kaisetsu-box5-title{
+	position: absolute;
+	line-height: 0;
+	font-size: 18px;
+	left: 20px;
+	top: -18px;
+	color: #fff;
+	padding: 18px 15px;
+	border-radius: 2px;
+	letter-spacing: 0px!important;
+	@include grid-media($tablet){
+		font-weight: 500;
+	}
+	@include grid-media($mobile){
+		font-weight: 700;
+	}
+}
+.innerlink-box1{
+	position: relative;
+	padding-top: 40px!important;
+	border: 1px solid #aaa;
+	border-radius: 4px;
+	background: rgba(255,255,255,0.00);
+	@include grid-media($mobile){
+		padding-top: 35px!important;
+		margin-top: 10px!important;
+	}
+	@include grid-media($tablet){
+		margin-top: 20px!important;
+	}
+}
+.innerlink-box1:before{
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity:0.04;
+	z-index: 0;
+}
+.innerlink-box1-title{
+	position: absolute;
+	font-family: 'ヒラギノ角ゴ ProN W3', Hiragino Sans, 'ヒラギノ角ゴ ProN W3', Hiragino Kaku Gothic ProN, "メイリオ", Meiryo, sans-seri;
+	background:red;
+	border: 3px solid #aaa;
+	line-height: 0;
+	color: #fff;
+	border-radius: 2px;
+	letter-spacing: 0;
+	@include grid-media($tablet){
+		top: -16px;
+		padding: 7px 8px 7px 8px;
+		font-size: 12px;
+		font-weight: 500;
+	}
+	@include grid-media($mobile){
+		top: -14px;
+		left: 15px;
+		padding: 10px 6px 10px 9px;
+		font-weight: bold;
+		font-size: 11px;
+	}
+	.fas{
+		line-height: 0;
+		color: #fff;
+	}
+	svg,path{
+		fill:#fff!important;
+		font-size: 13px;
+	}
+}
+.kaisetsu-box1,
+.kaisetsu-box2,
+.kaisetsu-box3,
+.kaisetsu-box4,
+.kaisetsu-box5,
+.kaisetsu-box6,
+.innerlink-box1{
+	padding: 0!important;
+	padding-bottom: 20px;
+	box-sizing: border-box;
+	@include grid-media($mobile){
+		margin-bottom: 30px;
+	}
+	@include grid-media($tablet){
+		margin-bottom: 40px;
+		width: 90%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	P{
+		padding-bottom: 20px;
+	}
+	ol,ul{
+		padding-top: 0px;
+		padding-bottom: 30px;
+		padding-right: 20px;
+		@include grid-media($mobile){
+			padding-left: 4px;
+			padding-right: 4px;
+		}
+	}
+	a{
+		position: relative;
+		z-index: 2;
+	}
+}
+.kaisetsu-box1,
+.kaisetsu-box2,
+.kaisetsu-box3,
+.kaisetsu-box4,
+.kaisetsu-box5,
+.kaisetsu-box6{
+	ol,ul{
+		padding-top: 10px;
+		padding-bottom: 30px;
+		padding-right: 20px;
+		@include grid-media($mobile){
+			padding-left: 4px;
+			padding-right: 4px;
+		}
+	}
+}
+.innerlink-box1{
+	ol,ul{
+		padding-top: 0px;
+		padding-bottom: 30px;
+		padding-right: 20px;
+		@include grid-media($mobile){
+			padding-left: 4px;
+			padding-right: 4px;
+		}
+	}
+}
+.kaisetsu-box1 .editor-inner-blocks,
+.kaisetsu-box2 .editor-inner-blocks,
+.kaisetsu-box3 .editor-inner-blocks,
+.kaisetsu-box4 .editor-inner-blocks,
+.kaisetsu-box5 .editor-inner-blocks,
+.innerlink-box1 .editor-inner-blocks{
+	padding-top: 60px;
+	padding-left:25px;
+	padding-right: 25px;
+}
+
+
+//アイコンボックス
+.jin-icons{
+	font-size:20px;
+}
+.jin-iconbox{
+	display:flex;
+	align-items:center;
+	padding:20px;
+	margin:20px;
+	border-radius:5px;
+}
+p + .jin-iconbox{
+	margin-top: 0;
+}
+img + .jin-iconbox{
+	margin-top: 5px;
+}
+.jin-iconbox + p,
+.jin-iconbox + img{
+	padding-top: 10px;
+}
+.jin-iconbox-icons{
+	padding-right:20px;
+}
+.jin-iconbox-main{
+	padding-left:15px;
+	font-size: 0.95rem;
+	line-height: 1.4rem;
+
+}
+.jin-ifont-check-circle:before,
+.jin-ifont-caution:before{
+	font-size:1.4rem;
+	line-height:1.2rem;
+	padding-left:1px;
+	padding-right:4px;
+}
+
+.jin-ifont-speaker:before{
+font-size:1.8rem;
+line-height:1.2rem;
+}
+.jin-ifont-clipboard:before,
+.jin-ifont-like:before,
+.jin-ifont-comment:before,
+.jin-ifont-bulb:before{
+font-size:1.6rem;
+line-height:1.1rem;
+}
+.jin-ifont-star:before,
+.jin-ifont-cart:before{
+font-size:1.6rem;
+line-height:1.2rem;
+}
+.jin-ifont-unlike:before{
+font-size:1.6rem;
+line-height:0.9rem;
+}
+.jin-ifont-flag:before,
+.jin-ifont-question:before,
+.jin-ifont-information:before,
+.jin-ifont-gear:before,
+.jin-ifont-heart:before,
+.jin-ifont-pencil:before{
+font-size:1.5rem;
+line-height:1.2rem;
+}
+
+
+.yellow-iconbox{
+	background-color:#FFF9DF;
+}
+.green-iconbox{
+	background-color:#e8f9e9;
+}
+.red-iconbox{
+	background-color:#FFF0F2;
+}
+.blue-iconbox{
+	background-color:#EEF0FA;
+}
+
+//グーテンベルクで作成されたアイコンボックス仕様
+.jin-icon-caution,
+.jin-icon-star,
+.jin-icon-bulb,
+.jin-icon-cart{
+	background-color:#FFF9DF;
+	.jin-iconbox-main{
+		border-left:2px dashed #FFE89B;
+	}
+}
+.jin-icon-speaker,
+.jin-icon-comment,
+.jin-icon-check-circle,
+.jin-icon-pencil{
+	background-color:#e8f9e9;
+	.jin-iconbox-main{
+		border-left:2px dashed #A5EDAF;
+	}
+}
+.jin-icon-like,
+.jin-icon-information,
+.jin-icon-gear,
+.jin-icon-clipboard{
+	background-color:#EEF0FA;
+	.jin-iconbox-main{
+		border-left:2px dashed #D5D9F2;
+	}
+}
+.jin-icon-heart,
+.jin-icon-unlike,
+.jin-icon-question,
+.jin-icon-flag{
+	background-color:#FFF0F2;
+	.jin-iconbox-main{
+		border-left:2px dashed #FFD1D1;
+	}
+}
+
+.yellow--border{
+	border-left:2px dashed #FFE89B;
+}
+.green--border{
+	border-left:2px dashed #A5EDAF;
+}
+.red--border{
+	border-left:2px dashed #FFD1D1;
+}
+.blue--border{
+	border-left:2px dashed #D5D9F2;
+}
+
+
+@include grid-media($mobile){
+	.jin-iconbox{
+		margin:20px 0;
+	}
+}
+
+.jin-iconbox-icons{
+	.jin-icons{
+		vertical-align: middle;
+	}
+	.jin-icons:before{
+		padding-bottom: 3px;
+	}
+	.jin-ifont-star.jin-icons,
+	.jin-ifont-bulb.jin-icons,
+	.jin-ifont-cart.jin-icons,
+	.jin-ifont-caution.jin-icons{
+		color:#FFBF0E;
+	}
+
+	/*グリーンアイコン*/
+	.jin-ifont-check-circle.jin-icons,
+	.jin-ifont-comment.jin-icons,
+	.jin-ifont-pencil.jin-icons,
+	.jin-ifont-speaker.jin-icons{
+		color:#05B483;
+	}
+
+	/*ブルーアイコン*/
+	.jin-ifont-information.jin-icons,
+	.jin-ifont-gear.jin-icons,
+	.jin-ifont-clipboard.jin-icons,
+	.jin-ifont-like.jin-icons{
+		color:#2F387C;
+	}
+
+	/*レッドアイコン*/
+	.jin-ifont-question.jin-icons,
+	.jin-ifont-flag.jin-icons,
+	.jin-ifont-unlike.jin-icons,
+	.jin-ifont-heart.jin-icons{
+		color:#F13D54;
+	}
+}
+
+
+//リッチボタン
+@keyframes jin-shiny{
+	0% {
+	  -webkit-transform: translateX(-100px);
+		transform: translateX(-100px);
+	}
+	20% {
+		-webkit-transform: translateX(300px); 
+		transform:translateX(300px);
+	}
+	100% {
+		-webkit-transform: translateX(300px); 
+		transform:translateX(300px);
+	}
+}
+@keyframes jin-float {  
+	50% {
+		transform: scale(1.07);
+	}
+}
+@keyframes jin-bound {
+	0% {
+		transform: translateY(0px);
+	}
+	5% {
+		transform: translateY(-10px);
+	}
+	12% {
+		transform: translateY(0px);
+	}
+	18% {
+		transform: translateY(-10px);
+	}
+	24% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+
+.jin-flexbox {
+    display: flex;
+    justify-content: center;
+	@include grid-media($mobile){
+		a{
+			font-weight: bold;
+		}
+	}
+	a:hover{
+		opacity: 1;
+	}
+	.jsb-visual-shiny{
+		position: relative;
+	}
+	.jsb-visual-shiny:before{
+		content: '';
+		display: block;
+		position: absolute;  
+		left: 0;
+		top: 0;
+		background:rgba(255, 255, 255, 0.5);
+		width: 60px;
+		height: 130px;
+		opacity: .5;
+		-webkit-filter: blur(30px);
+		filter: blur(30px);
+		-webkit-transform: skewX(-15deg);
+		transform:skewX(-15deg);
+		animation: 3s jin-shiny ease infinite;
+	}
+	.jsb-visual-float{
+		animation: 2s jin-float ease infinite;
+	}
+	.jsb-visual-bound{
+		animation: 2s jin-bound ease infinite;
+	}
+	div:not(.jsb-visual-shiny).jsb-hover-down a,
+	div:not(.jsb-visual-shiny).jsb-hover-up a,
+	div:not(.jsb-visual-shiny).jsb-hover-hop a{
+		will-change: transform;
+	}
+	.jsb-hover-down a:hover{
+		transform: scale(0.95);
+	}
+	.jsb-hover-up a:hover{
+		transform: scale(1.05);
+	}
+	.jsb-hover-hop a:hover{
+		transform: translateY(-7px);
+    	box-shadow: 0px 5px 15px -5px #ddd;
+	}
+	.jsb-hover-shiny a:hover{
+		
+	}
+}
+.jin-shortcode-button {
+    transition: all 0.3s ease 0s;
+    will-change: transform;
+	margin-left: 5px;
+	margin-right: 5px;
+	a{
+		display: inline-block;
+		font-size: 17px;
+		margin: 20px 0;
+		border-radius: 50px;
+		color: #fff !important;
+		text-decoration: none!important;
+		box-shadow: 0px 5px 15px -5px #ccc;
+		text-align: center;
+		@include grid-media($mobile){
+			padding: 15px 40px;
+		}
+		@include grid-media($tablet){
+			padding: 15px 40px;
+		}
+		@include grid-media($pc_view){
+			padding: 19px 80px;
+		}
+	}
+	a:hover{
+		opacity: 1!important;
+		filter: opacity(1)!important;
+	}
+}
+
+//グーテンベルクのアイコンボックスのアイコンがリアルタイムで変更されない旨のコメント
+.gb-attention-comment{
+	color: #e9546b;
+	font-size: 11px;
+}
+
+
+
+//グーテンベルクのJINボタンのデフォルトセンター寄せ
+.editor-block-list__block[data-type="jin-gb-block/simple-button"]{
+	.editor-block-list__block-edit{
+		text-align: center;
+	}
+}
+
+h2.ui-sortable-handle,
+h2.components-panel__body-title{
+	background-color: none!important;
+}
+
+#id_mypostdesign_title{
+	display: none;
+}
