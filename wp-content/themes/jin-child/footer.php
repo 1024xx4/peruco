@@ -78,7 +78,7 @@
 		  <div class="inner">
 		    <ul class="fixed-btn-list">
 					<li class="fixed-btn-item">
-						<a class="fixed-btn-item__link fixed-btn-item__link--tel" href="tel:0422-28-428">
+						<a class="fixed-btn-item__link fixed-btn-item__link--tel" href="tel:0480317374">
 							<i class="fas fa-phone"></i>0480-31-7374
 						</a>
 					</li>
