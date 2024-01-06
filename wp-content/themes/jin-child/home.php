@@ -159,7 +159,7 @@
     </div>
   </div>
   <div class="mapCnt">
-    <?php echo do_shortcode('[wpgmza id="1"]'); ?>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3225.793437484918!2d139.7118895756575!3d36.04974680964282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018b79586f6ebd5%3A0x557ba9531d591c9c!2z44Oa44Or44Kz6Iqx5bqX77yP44OV44Op44Ov44O844Ki44Os44Oz44K444Oh44Oz44OI44K344On44OD44OX!5e0!3m2!1sja!2sjp!4v1704543057194!5m2!1sja!2sjp" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>  
   </div>
 </section>
 <?php get_footer(); ?>
